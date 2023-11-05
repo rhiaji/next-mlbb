@@ -11,13 +11,10 @@ module.exports = {
 
         try {
             // Establish a new database connection
-            const client = await MongoClient.connect(
-                'mongodb+srv://rhiaji:Saravia12345@cluster0.hmy2bxv.mongodb.net/mlbb?retryWrites=true&w=majority',
-                {
-                    useNewUrlParser: true,
-                    useUnifiedTopology: true,
-                }
-            )
+            const client = await MongoClient.connect(process.env.URI, {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+            })
             dbConnection = client.db()
             return dbConnection
         } catch (err) {
