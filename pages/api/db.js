@@ -1,11 +1,12 @@
 const { MongoClient } = require('mongodb')
+import dotenv from 'dotenv'
 
 let dbConnection
 
 module.exports = {
     connectToDb: () => {
         return new Promise((resolve, reject) => {
-            MongoClient.connect('mongodb://127.0.0.1:27017/mlbb')
+            MongoClient.connect(process.env.URI)
                 .then((client) => {
                     dbConnection = client.db()
                     resolve()
