@@ -1,0 +1,47 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 50px);
+}
+
+.heroOne {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 500px;
+}
+
+.heroPlate {
+    width: 600px;
+    margin-right: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #cfcfcf;
+    border-radius: 10px;
+    border: 2px solid gray;
+}
+
+.heroPlate h4 {
+    margin: 5px;
+}
+
+.heroPlate p {
+    margin: 5px;
+}
+
+.heroPlate img {
+    width: 135px;
+    height: 240px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.updateContent {
+    display: flex;
+    justify-content: space-evenly;
+    overflow-y: scroll;
+}

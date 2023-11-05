@@ -1,0 +1,40 @@
+.mainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid gray;
+}
+
+/* Search.module.css */
+.search label,
+.search input,
+.search button {
+    margin-right: 10px;
+}
+
+.search button {
+    background-color: #4da167;
+    border: none;
+    width: 80px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: 0.4s ease;
+}
+
+/* Search input field */
+.search input {
+    flex: 1;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search button:hover {
+    background-color: #4e6e5d;
+    cursor: pointer;
+}
