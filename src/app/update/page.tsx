@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Styles from '../page.module.css'
-import UpdateSearch from '../../../public/components/UpdateSearch'
+import UpdateSearch from '../../../public/components/updateSearch'
 import UpdateContent from '../../../public/components/update'
 
 export default function update() {
