@@ -1,10 +1,8 @@
-import { connectToDb, getDb } from './db'
+import { connectToDb } from './db'
 
 export default async (req, res) => {
     try {
-        await connectToDb()
-
-        const db = getDb()
+        const db = await connectToDb()
 
         if (req.method === 'GET') {
             let heroes = []

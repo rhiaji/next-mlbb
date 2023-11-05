@@ -1,11 +1,9 @@
 import { ObjectId } from 'mongodb'
-import { connectToDb, getDb } from './db'
+import { connectToDb } from './db'
 
 export default async (req, res) => {
     try {
-        connectToDb() // No need to await here
-
-        const db = getDb()
+        const db = await connectToDb()
 
         // Handle GET request
         const heroName = req.query.name // Access the ID from query parameters

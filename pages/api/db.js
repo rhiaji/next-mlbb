@@ -1,21 +1,28 @@
 const { MongoClient } = require('mongodb')
-import dotenv from 'dotenv'
 
-let dbConnection
+let dbConnection // Global variable to store the database connection
 
 module.exports = {
-    connectToDb: () => {
-        return new Promise((resolve, reject) => {
-            MongoClient.connect('mongodb+srv://rhiaji:Saravia12345@cluster0.hmy2bxv.mongodb.net/mlbb?retryWrites=true&w=majority')
-                .then((client) => {
-                    dbConnection = client.db()
-                    resolve()
-                })
-                .catch((err) => {
-                    console.log(err)
-                    reject(err)
-                })
-        })
+    connectToDb: async () => {
+        // If the database connection already exists, return it
+        if (dbConnection) {
+            return dbConnection
+        }
+
+        try {
+            // Establish a new database connection
+            const client = await MongoClient.connect(
+                'mongodb+srv://rhiaji:Saravia12345@cluster0.hmy2bxv.mongodb.net/mlbb?retryWrites=true&w=majority',
+                {
+                    useNewUrlParser: true,
+                    useUnifiedTopology: true,
+                }
+            )
+            dbConnection = client.db()
+            return dbConnection
+        } catch (err) {
+            console.error(err)
+            throw err
+        }
     },
-    getDb: () => dbConnection,
 }

@@ -94,44 +94,45 @@ const ContentMain = ({ searchQuery, show }) => {
                 </div>
             )}
 
-            <div className={CStyles.heroOne} style={{ display: show ? 'flex' : 'none' }}>
-                <div className={CStyles.heroPlate} key={hero._id}>
-                    <img src={`../images/heroes/${hero.heroName}.jpg`} className={CStyles.heroImage}></img>
-                    <h4>{hero.heroName}</h4>
+            {hero && ( // Render the card only when `hero` is available
+                <div className={CStyles.heroOne} style={{ display: show ? 'flex' : 'none' }}>
+                    <div className={CStyles.heroPlate} key={hero._id}>
+                        <img src={`../images/heroes/${hero.heroName}.jpg`} className={CStyles.heroImage}></img>
+                        <h4>{hero.heroName}</h4>
 
-                    {hero.role && hero.role.length > 0 ? (
-                        <div>
-                            {hero.role.map((roles, index) => (
-                                <span key={index}>
-                                    <img src={`../images/${roleImageMapping[roles]}`} className={CStyles.roleIcons} alt={roles}></img>
-                                    {roles}
-                                    {index < hero.role.length - 1 ? ' | ' : ''}
-                                </span>
-                            ))}
-                        </div>
-                    ) : (
-                        'No Roles found'
-                    )}
+                        {hero.role && hero.role.length > 0 ? (
+                            <div>
+                                {hero.role.map((roles, index) => (
+                                    <span key={index}>
+                                        <img src={`../images/${roleImageMapping[roles]}`} className={CStyles.roleIcons} alt={roles}></img>
+                                        {roles}
+                                        {index < hero.role.length - 1 ? ' | ' : ''}
+                                    </span>
+                                ))}
+                            </div>
+                        ) : (
+                            'No Roles found'
+                        )}
 
-                    {hero.specialty && hero.specialty.length > 0 ? (
-                        <div>
-                            Specialty:
-                            {hero.specialty.map((Specialty, index) => (
-                                <span key={index}>
-                                    {Specialty}
-                                    {index < hero.specialty.length - 1 ? ' | ' : ' '}
-                                </span>
-                            ))}
-                        </div>
-                    ) : (
-                        'No specialties found'
-                    )}
+                        {hero.specialty && hero.specialty.length > 0 ? (
+                            <div>
+                                Specialty:
+                                {hero.specialty.map((Specialty, index) => (
+                                    <span key={index}>
+                                        {Specialty}
+                                        {index < hero.specialty.length - 1 ? ' | ' : ' '}
+                                    </span>
+                                ))}
+                            </div>
+                        ) : (
+                            'No specialties found'
+                        )}
 
-                    <p>Lane: {hero.lane}</p>
-                    {/* Add more details here as needed */}
-                    {/* Add more details here as needed */}
+                        <p>Lane: {hero.lane}</p>
+                        {/* Add more details here as needed */}
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     )
 }
