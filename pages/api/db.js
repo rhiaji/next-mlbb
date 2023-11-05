@@ -6,7 +6,7 @@ let dbConnection
 module.exports = {
     connectToDb: () => {
         return new Promise((resolve, reject) => {
-            MongoClient.connect(process.env.URI)
+            MongoClient.connect('mongodb+srv://rhiaji:Saravia12345@cluster0.hmy2bxv.mongodb.net/mlbb?retryWrites=true&w=majority')
                 .then((client) => {
                     dbConnection = client.db()
                     resolve()
