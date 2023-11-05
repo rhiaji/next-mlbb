@@ -23,7 +23,7 @@ const ContentMain = ({ searchQuery, show }) => {
                 let response
 
                 if (searchQuery === '') {
-                    response = await fetch(`http://localhost:3000/api/heroes`)
+                    response = await fetch(`api/heroes`)
                     if (response.ok) {
                         const data = await response.json()
                         setHeroes(data)
@@ -31,7 +31,7 @@ const ContentMain = ({ searchQuery, show }) => {
                         console.error('Failed to fetch heroes.')
                     }
                 } else {
-                    response = await fetch(`http://localhost:3000/api/hero?name=${searchQuery}`)
+                    response = await fetch(`api/hero?name=${searchQuery}`)
                     if (response.ok) {
                         const data = await response.json()
                         setHero(data)

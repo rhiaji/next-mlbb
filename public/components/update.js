@@ -12,7 +12,7 @@ const UpdateContent = ({ searchQuery }) => {
             try {
                 let response
 
-                response = await fetch(`http://localhost:3000/api/hero?name=${searchQuery}`)
+                response = await fetch(`api/hero?name=${searchQuery}`)
                 if (response.ok) {
                     const data = await response.json()
                     setHero(data)
