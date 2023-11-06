@@ -16,7 +16,6 @@
     height: 80vh;
     margin-top: 20px;
     display: flex;
-    justify-content: space-evenly;
     background: linear-gradient(to bottom, #4e4e4e, #161616);
     color: white;
     border-radius: 10px;
@@ -37,14 +36,15 @@
 }
 
 .heroInformation {
-    min-width: 200px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     margin: 20px;
+    border-right: 2px solid rgb(121, 121, 121);
 }
 
 .heroText {
-    width: 600px;
+    width: calc(100% - 300px);
     display: flex;
     flex-direction: column;
 }
@@ -73,21 +73,28 @@
 .againstContent {
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 70vh;
+    justify-content: center;
+}
+
+.tipsContent {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
     justify-content: center;
 }
 
 .strengthContent {
     display: block;
     flex-direction: column;
-    height: 500px;
+    height: 70vh;
     justify-content: center;
 }
 
 .weaknessContent {
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 70vh;
     justify-content: center;
 }
 

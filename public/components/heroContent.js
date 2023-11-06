@@ -5,6 +5,7 @@ const HeroContent = ({ searchQuery, show, onHeroSearch }) => {
     const [show1, setShow1] = useState(true)
     const [show2, setShow2] = useState(false)
     const [show3, setShow3] = useState(false)
+    const [show4, setShow4] = useState(false)
     const [hero, setHero] = useState([])
     const [loading, setLoading] = useState(false)
 
@@ -99,6 +100,7 @@ const HeroContent = ({ searchQuery, show, onHeroSearch }) => {
                                     onClick={() => {
                                         setShow2(false)
                                         setShow3(false)
+                                        setShow4(false)
                                         setShow1(true)
                                     }}
                                 >
@@ -108,7 +110,18 @@ const HeroContent = ({ searchQuery, show, onHeroSearch }) => {
                                     onClick={() => {
                                         setShow1(false)
                                         setShow3(false)
+                                        setShow4(false)
                                         setShow2(true)
+                                    }}
+                                >
+                                    Tips
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        setShow1(false)
+                                        setShow2(false)
+                                        setShow4(false)
+                                        setShow3(true)
                                     }}
                                 >
                                     Strengths
@@ -117,7 +130,8 @@ const HeroContent = ({ searchQuery, show, onHeroSearch }) => {
                                     onClick={() => {
                                         setShow1(false)
                                         setShow2(false)
-                                        setShow3(true)
+                                        setShow3(false)
+                                        setShow4(true)
                                     }}
                                 >
                                     Weakness
@@ -152,17 +166,18 @@ const HeroContent = ({ searchQuery, show, onHeroSearch }) => {
                                 )}
                                 <h4>Item Counter:</h4>
                                 {hero.itemsCounter && hero.itemsCounter.length > 0 ? (
-                                    <div>
+                                    <div className={CStyles.lists}>
                                         {hero.itemsCounter.map((items, index) => (
-                                            <span key={index}>
-                                                {items}
-                                                {index < hero.itemsCounter.length - 1 ? ' | ' : ' '}
-                                            </span>
+                                            <div key={index}>
+                                                <li>{items}</li>
+                                            </div>
                                         ))}
                                     </div>
                                 ) : (
                                     'No items found'
                                 )}
+                            </div>
+                            <div className={CStyles.tipsContent} style={{ display: show2 ? 'flex' : 'none' }}>
                                 <h4>Tips:</h4>
                                 {hero.tipsCounter && hero.tipsCounter.length > 0 ? (
                                     <div className={CStyles.lists}>
@@ -174,7 +189,7 @@ const HeroContent = ({ searchQuery, show, onHeroSearch }) => {
                                     'No items found'
                                 )}
                             </div>
-                            <div className={CStyles.strengthContent} style={{ display: show2 ? 'flex' : 'none' }}>
+                            <div className={CStyles.strengthContent} style={{ display: show3 ? 'flex' : 'none' }}>
                                 <h4>Hero Strengths:</h4>
                                 {hero.strengthCounter && hero.strengthCounter.length > 0 ? (
                                     <div className={CStyles.lists}>
@@ -188,7 +203,7 @@ const HeroContent = ({ searchQuery, show, onHeroSearch }) => {
                                     'No Strengths found'
                                 )}
                             </div>
-                            <div className={CStyles.weaknessContent} style={{ display: show3 ? 'flex' : 'none' }}>
+                            <div className={CStyles.weaknessContent} style={{ display: show4 ? 'flex' : 'none' }}>
                                 <h4>Hero Weaknesses:</h4>
                                 {hero.weaknessCounter && hero.weaknessCounter.length > 0 ? (
                                     <div className={CStyles.lists}>
