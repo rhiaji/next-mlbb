@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import CStyles from '../css/content.module.css'
 
-const ContentMain = ({ searchQuery, show }) => {
-    const [hero, setHero] = useState([])
+const ContentMain = ({ searchQuery, show, setHeroSearch, onShow }) => {
     const [heroes, setHeroes] = useState([])
     const [loading, setLoading] = useState(false)
 
@@ -15,6 +14,11 @@ const ContentMain = ({ searchQuery, show }) => {
         Assassin: '../images/roles/assassin.png',
     }
 
+    const heroSearch = (heroName) => {
+        setHeroSearch(heroName)
+        onShow(true)
+    }
+
     useEffect(() => {
         async function fetchHeroes() {
             setLoading(true)
@@ -22,22 +26,12 @@ const ContentMain = ({ searchQuery, show }) => {
             try {
                 let response
 
-                if (searchQuery === '') {
-                    response = await fetch(`api/heroes`)
-                    if (response.ok) {
-                        const data = await response.json()
-                        setHeroes(data)
-                    } else {
-                        console.error('Failed to fetch heroes.')
-                    }
+                response = await fetch(`api/heroes`)
+                if (response.ok) {
+                    const data = await response.json()
+                    setHeroes(data)
                 } else {
-                    response = await fetch(`api/hero?name=${searchQuery}`)
-                    if (response.ok) {
-                        const data = await response.json()
-                        setHero(data)
-                    } else {
-                        console.error('Failed to fetch heroes.')
-                    }
+                    console.error('Failed to fetch heroes.')
                 }
             } catch (error) {
                 console.error('Error:', error)
@@ -50,7 +44,7 @@ const ContentMain = ({ searchQuery, show }) => {
     }, [searchQuery])
 
     return (
-        <div className={CStyles.content}>
+        <div className={CStyles.content} style={{ display: show ? 'none' : 'flex' }}>
             <h3>Hero Lists</h3>
             {loading ? (
                 <span className={CStyles.loader}></span>
@@ -59,7 +53,14 @@ const ContentMain = ({ searchQuery, show }) => {
                     {heroes.map((hero) => (
                         <div className={CStyles.heroPlate} key={hero._id}>
                             <img src={`../images/heroes/${hero.heroName}.jpg`} className={CStyles.heroImage}></img>
-                            <h4>{hero.heroName}</h4>
+                            <a
+                                onClick={() => {
+                                    heroSearch(hero.heroName)
+                                }}
+                            >
+                                <h4>{hero.heroName}</h4>
+                            </a>
+
                             {hero.role && hero.role.length > 0 ? (
                                 <div>
                                     {hero.role.map((roles, index) => (
@@ -91,46 +92,6 @@ const ContentMain = ({ searchQuery, show }) => {
                             {/* Add more details here as needed */}
                         </div>
                     ))}
-                </div>
-            )}
-
-            {hero && ( // Render the card only when `hero` is available
-                <div className={CStyles.heroOne} style={{ display: show ? 'flex' : 'none' }}>
-                    <div className={CStyles.heroPlate} key={hero._id}>
-                        <img src={`../images/heroes/${hero.heroName}.jpg`} className={CStyles.heroImage}></img>
-                        <h4>{hero.heroName}</h4>
-
-                        {hero.role && hero.role.length > 0 ? (
-                            <div>
-                                {hero.role.map((roles, index) => (
-                                    <span key={index}>
-                                        <img src={`../images/${roleImageMapping[roles]}`} className={CStyles.roleIcons} alt={roles}></img>
-                                        {roles}
-                                        {index < hero.role.length - 1 ? ' | ' : ''}
-                                    </span>
-                                ))}
-                            </div>
-                        ) : (
-                            'No Roles found'
-                        )}
-
-                        {hero.specialty && hero.specialty.length > 0 ? (
-                            <div>
-                                Specialty:
-                                {hero.specialty.map((Specialty, index) => (
-                                    <span key={index}>
-                                        {Specialty}
-                                        {index < hero.specialty.length - 1 ? ' | ' : ' '}
-                                    </span>
-                                ))}
-                            </div>
-                        ) : (
-                            'No specialties found'
-                        )}
-
-                        <p>Lane: {hero.lane}</p>
-                        {/* Add more details here as needed */}
-                    </div>
                 </div>
             )}
         </div>

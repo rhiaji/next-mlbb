@@ -7,30 +7,21 @@ const SearchMain = ({ onSearch, onShow }) => {
 
         if (inputElement) {
             const heroName = inputElement.value
-            onSearch(heroName)
 
-            // Immediately trigger a search when the user clicks the button
-            // This ensures that the new searchQuery is used right away
-            // This additional call is not strictly necessary if the parent component updates quickly
-            // It's added for immediate response to user input
-            onSearch(heroName)
+            if (heroName.trim() !== '') {
+                // Only trigger a search if the input is not empty or only contains whitespace
+                onSearch(heroName)
+                onShow(true)
+            }
+            // You can also do something else if the input is empty, if needed.
         }
     }
 
     const findAll = () => {
         const inputElement = document.getElementById('search')
 
-        if (inputElement) {
-            const heroName = inputElement.value
-            onSearch(heroName)
-
-            // Immediately trigger a search when the user clicks the button
-            // This ensures that the new searchQuery is used right away
-            // This additional call is not strictly necessary if the parent component updates quickly
-            // It's added for immediate response to user input
-            onSearch(heroName)
-            inputElement.value = ''
-        }
+        inputElement.value = ''
+        onShow(false)
     }
 
     return (
@@ -42,7 +33,6 @@ const SearchMain = ({ onSearch, onShow }) => {
                     type="button"
                     onClick={() => {
                         heroSearch()
-                        onShow(true)
                     }}
                 >
                     Find
@@ -51,7 +41,6 @@ const SearchMain = ({ onSearch, onShow }) => {
                     type="button"
                     onClick={() => {
                         findAll()
-                        onShow(false)
                     }}
                 >
                     Find All
