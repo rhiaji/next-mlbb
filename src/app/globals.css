@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #4e4e4e;
+    background-color: #040b14;
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@ main {
     padding: 20px;
     height: 100vh;
     width: calc(100vw - 10%);
-    background-color: rgb(236, 236, 236);
+    background-color: #ffffff;
 }
 
 nav {
