@@ -41,6 +41,7 @@ const SearchMain = ({ onSearch, onShow }) => {
                     type="button"
                     onClick={() => {
                         findAll()
+                        onSearch()
                     }}
                 >
                     Find All
