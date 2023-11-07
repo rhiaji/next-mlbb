@@ -21,7 +21,7 @@ header {
 main {
     padding: 20px;
     height: 100vh;
-    width: calc(100vw - 10%);
+    width: 100vw;
     background-color: #ffffff;
 }
 

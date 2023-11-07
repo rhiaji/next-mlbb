@@ -12,17 +12,6 @@ export default function Home() {
 
     return (
         <body>
-            <header>
-                <div className={Styles.logo}>Logo Here</div>
-                <nav>
-                    <a href="/" className={Styles.active}>
-                        Heroes
-                    </a>
-                    <a href="/items">Items</a>
-                    <a href="/roles">Roles</a>
-                    <a href="/update">Update</a>
-                </nav>
-            </header>
             <main>
                 {/* Pass an object with properties as props */}
                 <SearchMain onSearch={setSearchQuery} onShow={setShow} />
