@@ -45,7 +45,6 @@ const ContentMain = ({ searchQuery, show, setHeroSearch, onShow }) => {
 
     return (
         <div className={CStyles.content} style={{ display: show ? 'none' : 'flex' }}>
-            <h3>Hero Lists</h3>
             {loading ? (
                 <span className={CStyles.loader}></span>
             ) : (

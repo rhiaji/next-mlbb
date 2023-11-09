@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 80px);
 }
 
 .heroList {
@@ -29,14 +29,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(to bottom, #4e4e4e, #161616);
-    color: white;
+    background: linear-gradient(to bottom, #645f5f, #0c0404);
+    color: #d1d7e0;
     border-radius: 10px;
-    border: 2px solid rgb(105, 103, 103);
+    border: 2px solid #b7b1b1;
+    box-shadow: 0 4px 6px rgb(10, 5, 5, 0.5); /* Adjust the values as needed */
 }
 
 .heroPlate:hover {
-    border: 2px solid gold;
     animation: shimmer 1.5s infinite linear;
 }
 
@@ -61,14 +61,14 @@
 }
 
 .heroPlate a {
-    color: rgb(68, 68, 151);
+    color: #00779a;
     text-decoration: underline;
     cursor: pointer;
     transition: 0.4s ease;
 }
 
 .heroPlate a:hover {
-    color: #ac2813;
+    color: #56abd1;
 }
 
 .roleIcons {

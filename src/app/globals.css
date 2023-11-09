@@ -1,14 +1,15 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-roboto-mono);
     margin: 0;
     padding: 0;
     display: flex;
     overflow-y: hidden;
+    letter-spacing: 0.5px;
 }
 
 header {
     background-color: #040b14;
-    color: #ffffff;
+    color: #faf4f4;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -19,10 +20,9 @@ header {
 }
 
 main {
-    padding: 20px;
     height: 100vh;
     width: 100vw;
-    background-color: #ffffff;
+    background-color: #ffe4e5;
 }
 
 nav {
