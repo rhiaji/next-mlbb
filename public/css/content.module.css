@@ -24,8 +24,8 @@
     width: 260px;
     height: 400px;
     margin-right: 20px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 15px;
     font-size: 15px;
     display: flex;
     flex-direction: column;
@@ -33,12 +33,12 @@
     background: linear-gradient(to bottom, #645f5f, #0c0404);
     color: #d1d7e0;
     border-radius: 10px;
-    border: 2px solid #b7b1b1;
-    box-shadow: 0 4px 6px rgb(10, 5, 5, 0.5); /* Adjust the values as needed */
+    border: 1px solid #b7b1b1;
     transition: 0.2s ease-in-out;
 }
 
 .heroPlate:hover {
+    box-shadow: 0 4px 6px rgb(10, 5, 5, 1); /* Adjust the values as needed */
     animation: shimmer 1.5s infinite linear;
     scale: 1.05;
 }
