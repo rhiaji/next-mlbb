@@ -2,6 +2,9 @@ body {
     font-family: var(--font-roboto-mono);
     margin: 0;
     padding: 0;
+    background-image: url(../../public/images/bg/mlbg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     overflow-y: hidden;
 }
@@ -21,7 +24,7 @@ header {
 main {
     height: 100vh;
     width: 100vw;
-    background-color: #ffe4e5;
+    background-color: transparent;
 }
 
 nav {
