@@ -4,7 +4,6 @@ body {
     padding: 0;
     display: flex;
     overflow-y: hidden;
-    letter-spacing: 0.5px;
 }
 
 header {
