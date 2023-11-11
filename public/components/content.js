@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import CStyles from '../css/content.module.css'
 
 const ContentMain = ({ searchQuery, show, setHeroSearch, onShow }) => {
+    let test
+
     const [heroes, setHeroes] = useState([])
     const [loading, setLoading] = useState(false)
 
