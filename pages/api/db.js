@@ -11,7 +11,7 @@ module.exports = {
 
         try {
             // Establish a new database connection
-            const client = await MongoClient.connect(process.env.URI, {
+            const client = await MongoClient.connect(process.env.REACT_APP_URI, {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
             })

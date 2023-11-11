@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CStyles from '../css/content.module.css'
+require('dotenv').config()
 
 const ContentMain = ({ searchQuery, show, setHeroSearch, onShow }) => {
     const [heroes, setHeroes] = useState([])
@@ -24,9 +25,15 @@ const ContentMain = ({ searchQuery, show, setHeroSearch, onShow }) => {
             setLoading(true)
 
             try {
-                let response
+                const apiKey = '800d651324caccc0e9361858b5a0604d6a0ec30f1a4227417c3ca76868b448f5'
 
-                response = await fetch(`api/heroes`)
+                const response = await fetch(`api/heroes`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': apiKey,
+                    },
+                })
+
                 if (response.ok) {
                     const data = await response.json()
                     setHeroes(data)

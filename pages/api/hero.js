@@ -1,8 +1,17 @@
 import { ObjectId } from 'mongodb'
 import { connectToDb } from './db'
 
+const VALID_API_KEY = process.env.REACT_APP_API
+
 export default async (req, res) => {
     try {
+        const apiKey = req.headers['x-api-key']
+
+        if (apiKey !== VALID_API_KEY) {
+            res.status(401).json({ error: 'Unauthorized' })
+            return
+        }
+
         const db = await connectToDb()
 
         // Handle GET request

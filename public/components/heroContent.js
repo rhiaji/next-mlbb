@@ -23,10 +23,15 @@ const HeroContent = ({ searchQuery, show, onHeroSearch }) => {
             setLoading(true)
 
             try {
-                let response
+                const apiKey = '800d651324caccc0e9361858b5a0604d6a0ec30f1a4227417c3ca76868b448f5'
 
                 if (searchQuery) {
-                    response = await fetch(`api/hero?name=${searchQuery}`)
+                    const response = await fetch(`api/hero?name=${searchQuery}`, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'x-api-key': apiKey,
+                        },
+                    })
                     if (response.ok) {
                         const data = await response.json()
                         setHero(data)
@@ -34,7 +39,12 @@ const HeroContent = ({ searchQuery, show, onHeroSearch }) => {
                         console.error('Failed to fetch heroes.')
                     }
                 } else if (onHeroSearch) {
-                    response = await fetch(`api/hero?name=${onHeroSearch}`)
+                    const response = await fetch(`api/hero?name=${onHeroSearch}`, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'x-api-key': apiKey,
+                        },
+                    })
                     if (response.ok) {
                         const data = await response.json()
                         setHero(data)
