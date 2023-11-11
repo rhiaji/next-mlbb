@@ -16,7 +16,7 @@
 }
 
 .search button {
-    background-color: #00779a;
+    background-color: #0c9ddd;
     border: none;
     width: 80px;
     height: 40px;
@@ -38,6 +38,6 @@
 }
 
 .search button:hover {
-    background-color: #11507a;
+    background-color: #00779a;
     cursor: pointer;
 }
