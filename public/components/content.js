@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import CStyles from '../css/content.module.css'
-require('dotenv').config()
 
 const ContentMain = ({ searchQuery, show, setHeroSearch, onShow }) => {
     const [heroes, setHeroes] = useState([])
