@@ -23,7 +23,7 @@ const HeroContent = ({ searchQuery, show, onHeroSearch }) => {
             setLoading(true)
 
             try {
-                const apiKey = '800d651324caccc0e9361858b5a0604d6a0ec30f1a4227417c3ca76868b448f5'
+                const apiKey = process.env.NEXT_PUBLIC_REACT_APP_API
 
                 if (searchQuery) {
                     const response = await fetch(`api/hero?name=${searchQuery}`, {

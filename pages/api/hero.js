@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb'
 import { connectToDb } from './db'
 
-const VALID_API_KEY = process.env.REACT_APP_API
+const VALID_API_KEY = process.env.NEXT_PUBLIC_REACT_APP_API
 
 export default async (req, res) => {
     try {
