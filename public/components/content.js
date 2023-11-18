@@ -47,6 +47,7 @@ const ContentMain = ({ searchQuery, show, setHeroSearch, onShow }) => {
         }
 
         fetchHeroes()
+        console.log(process.env.NEXT_PUBLIC_REACT_APP_API)
     }, [searchQuery])
 
     return (
